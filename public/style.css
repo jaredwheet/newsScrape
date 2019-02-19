@@ -1,0 +1,12 @@
+.jumbotron, .media {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+#dukeLogo {
+    height: 50px;
+    width:65px;
+}
