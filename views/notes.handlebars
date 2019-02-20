@@ -4,8 +4,10 @@
   <div class="container">
     <h1 class="display-4">Add Notes</h1>
     <p class="lead">Utilize this page to add notes related to the selected article!</p>
+    {{#each selectedArticle}}
     <h2>{{title}}</h2>
     <h3>{{summary}}</h3>
+    {{/each}}
   </div>
 </div>
 
