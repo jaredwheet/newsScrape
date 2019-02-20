@@ -99,6 +99,10 @@ app.get("/", function (req, res) {
 
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
+  db.Article.find({})
+    .then(function(data){
+      res.json(data)
+    })
   // Grab every document in the Articles collection
 });
 
@@ -106,12 +110,15 @@ app.get("/articles", function (req, res) {
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function (req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  db.Article.findOne({ _id: req.params.id })
-    // ..and populate all of the notes associated with it
-    .populate("note")
-    .then(function (dbArticle) {
+  db.Article.findOne({ _id: req.params.id })   // ..and populate all of the notes associated with it
+    .then(function (selectedArticle) {
+      var selectedArticle = {
+        selectedArticle: selectedArticle
+      }
+      console.log(selectedArticle)
       // If we were able to successfully find an Article with the given id, send it back to the client
-      res.json(dbArticle);
+      // res.render("notes", selectedArticle);
+      res.render("notes", selectedArticle)
     })
     .catch(function (err) {
       // If an error occurred, send it to the client
