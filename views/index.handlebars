@@ -24,8 +24,8 @@
       </a>
       {{summary}}
     </div>
-    <button type="button" class="btn btn-dark">Add Notes</button>
-    <button type="button" class="btn btn-danger">Mark As Read</button>
+    <button type="button" id="notes-btn" class="btn btn-dark">Add Notes</button>
+    <button type="button" id="read-btn" class="btn btn-danger">Mark As Read</button>
   </div>
   {{/unless}}
   {{/each}}
@@ -48,8 +48,8 @@
       </a>
       {{summary}}
     </div>
-    <button type="button" class="btn btn-dark">Add Notes</button>
-    <button type="button" class="btn btn-warning">Mark as Unread</button>
+    <button type="button" id="notes-btn" class="btn btn-dark">Add Notes</button>
+    <button type="button" id="unread-btn" class="btn btn-warning">Mark as Unread</button>
   </div>
   {{/if}}
   {{/each}}
@@ -58,6 +58,46 @@
 
 <script>
   $("#previous").on("click", function () {
+    $.ajax({
+      method: "GET",
+      url: "/read"
+    }).then(function (readArticles) {
+      var readArticles = {
+        readArticles: readArticles
+      }
+
+
+    })
+  })
+
+    $(".notes-btn").on("click", function () {
+      console.log("notesbtn pushed")
+    $.ajax({
+      method: "GET",
+      url: "/read"
+    }).then(function (readArticles) {
+      var readArticles = {
+        readArticles: readArticles
+      }
+
+
+    })
+  })
+      $(".read-btn").on("click", function () {
+      console.log("readbtn pushed")
+    $.ajax({
+      method: "GET",
+      url: "/read"
+    }).then(function (readArticles) {
+      var readArticles = {
+        readArticles: readArticles
+      }
+
+
+    })
+  })
+      $(".notes-btn").on("click", function () {
+      console.log("unreadbtn pushed")
     $.ajax({
       method: "GET",
       url: "/read"
