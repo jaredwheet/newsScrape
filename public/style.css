@@ -12,7 +12,9 @@ body {
     width:65px;
 }
 
-.jumbotron {    
+.jumbotron {
+    height: 450px;
+    width: 100%;    
     background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Sport-Duke-Blue-Devils-Photos-PIC-WPB007602.jpg");
     background-repeat: no-repeat;
     background-size: cover;

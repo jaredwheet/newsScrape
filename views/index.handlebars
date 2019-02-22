@@ -2,11 +2,12 @@
 <link rel="stylesheet" type="text/css" href="/style.css" />
 
 <div class="jumbotron">
-  <h1 class="display-4">Duke Blue Devils News</h1>
+  <h1 class="display-4">Duke Blue Devils News Scraper!</h1>
+  <br>
   <p class="lead">Articles from the Raleigh News Observer</p>
-  <hr class="my-4">
-  <p>Press the button below to gather new articles!</p>
-  <a class="btn btn-primary btn-lg" href="/scrape" role="button">New Articles</a>
+  <hr class="my-4">  
+  <a class="btn btn-primary btn-lg" href="/scrape" role="button">Gather New Articles</a>
+  <a class="btn btn-primary btn-lg delete-all" role="button">Delete All Articles</a>
 </div>
 
 <div class="unreadArticles" id="articles">
@@ -80,6 +81,14 @@
     $.ajax({
       method: "POST",
       url: "/unread/" + thisId
+    })
+    location.reload()
+  })
+
+    $(".delete-all").on("click", function () {    
+    $.ajax({
+      method: "POST",
+      url: "delete"
     })
     location.reload()
   })

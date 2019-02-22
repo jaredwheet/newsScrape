@@ -193,9 +193,8 @@ app.post("/unread/:id", function (req, res) {
     });
 });
 
-app.post("/delete/:id", function (req, res) {
-  noteId = req.params.id
-  db.Note.deleteOne({ _id : noteId})
+app.post("/delete/", function (req, res) {  
+  db.Article.remove({})
     .then(function () {
       res.status(200)
     })
