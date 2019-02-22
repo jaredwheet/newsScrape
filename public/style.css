@@ -6,8 +6,23 @@ body {
 }
 
 
+
 #dukeLogo {
     height: 50px;
     width:65px;
+}
+
+.jumbotron {    
+    background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Sport-Duke-Blue-Devils-Photos-PIC-WPB007602.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+    
+    
+}
+
+.display-4, .lead {
+    font-weight: 500
 }
 

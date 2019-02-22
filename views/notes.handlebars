@@ -1,25 +1,22 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 
-
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Add Notes</h1>
-    <p class="lead">Utilize this page to add notes related to the selected article!</p>
-    {{#each selectedArticle}}
-    <h2>{{title}}</h2>
-    <h3>{{summary}}</h3>
-    {{/each}}
-  </div>
+<div class="jumbotron">
+  <h1 class="display-4">Add Notes to Article</h1>  
+  <hr class="my-4">
+  {{#with selectedArticle}}
+  <p>Selected Article:  {{title}}</p>
+  {{/with}}
+  
 </div>
 
 
 <form>
   <div class="form-group">
-    <label for="notesForm">Note Title</label>
-    <input type="title" class="form-control" id="noteTitle" placeholder="Insert title of Note here">
+    <label for="notesForm">Title</label>
+    <input type="title" class="form-control" id="noteTitle">
   </div>
   <div class="form-group">
-    <label for="noteTextArea">Notes TextArea</label>
+    <label for="noteTextArea">Notes</label>
     <textarea class="form-control" id="notesText" rows="6"></textarea>
   </div>
 </form>
