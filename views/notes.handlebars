@@ -1,5 +1,6 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Add Notes</h1>
@@ -22,7 +23,12 @@
     <textarea class="form-control" id="notesText" rows="6"></textarea>
   </div>
 </form>
-
+{{#with selectedArticle}}
+<button type="button" id="save-notes" class="btn btn-dark" data-id="{{_id}}">Submit</button>
+<button type="button" id="view-notes" class="btn btn-light view-notes" data-id="{{_id}}">View Notes</button>
+<a class="btn btn-primary" href="/" role="button">Home</a>
+{{/with}}
 <div class="completedNotes">
 
 </div>
+<script src="app.js"></script>

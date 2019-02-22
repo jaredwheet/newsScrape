@@ -1,0 +1,35 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Your Notes</h1>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-primary" href="/" role="button">Home</a>
+
+            <button type="button" class="btn btn-secondary notes-btn" data-id="{{id}}">Add Note</button>
+
+        </div>
+    </div>
+</div>
+<div id="notes-body">
+
+    {{#each selectedArticleNotes}}
+
+    <div class="card text-center">
+        <div class="card-header">
+            Note
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{dbNote.title}}</h5>
+            <p class="card-text">{{dbNote.body}}</p>
+           
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<script>
+    $(".notes-btn").on("click", function () {
+        var thisId = $(this).attr("data-id");
+        window.location = "/articles/" + thisId
+    })
+
+ </script>

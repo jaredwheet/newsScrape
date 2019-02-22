@@ -24,8 +24,9 @@
       </a>
       {{summary}}
     </div>
-    <button type="button" id="notes-btn" class="btn btn-dark" data-id="{{_id}}">Add Notes</button>
-    <button type="button" id="read-btn" class="btn btn-danger">Mark As Read</button>
+    <button type="button" id="notes-btn" class="btn btn-dark notes-btn" data-id="{{_id}}">Add Notes</button>
+    <button type="button" id="view-notes" class="btn btn-light view-notes" data-id="{{_id}}">View Notes</button>
+    <button type="button" id="read-btn" class="btn btn-danger read-btn" data-id="{{_id}}">Mark As Read</button>
   </div>
   {{/unless}}
   {{/each}}
@@ -48,8 +49,9 @@
       </a>
       {{summary}}
     </div>
-    <button type="button" id="notes-btn" class="btn btn-dark">Add Notes</button>
-    <button type="button" id="unread-btn" class="btn btn-warning">Mark as Unread</button>
+    <button type="button" id="notes-btn" class="btn btn-dark notes-btn" data-id="{{_id}}">Add Notes</button>
+    <button type="button" id="view-notes" class="btn btn-ligh view-notes" data-id="{{_id}}">View Notes</button>
+    <button type="button" id="unread-btn" class="btn btn-warning unread-btn" data-id="{{_id}}">Mark as Unread</button>
   </div>
   {{/if}}
   {{/each}}
@@ -58,34 +60,27 @@
 
 <script>
 
-  $("#notes-btn").on("click", function () {
+  $(".notes-btn").on("click", function () {
     var thisId = $(this).attr("data-id");
-    window.location = "/articles/" + thisId    
+    window.location = "/articles/" + thisId
   })
-//    $("#read-btn").on("click", function () {
-//      console.log("readbtn pushed")
-      //$.ajax({
-       // method: "GET",
-      //  url: "/read"
-    //  }).then(function (readArticles) {
-    //    var readArticles = {
-       //   readArticles: readArticles
-      //  }
-       // res.render("notes", dbArticles)
 
-     // })
-  //  })
-   // $("#unread-btn").on("click", function () {
-     // console.log("unreadbtn pushed")
-     // $.ajax({
-      //  method: "GET",
-       // url: "/read"
-     // }).then(function (readArticles) {
-       // var readArticles = {
-         // readArticles: readArticles
-       // }
+  $(".read-btn").on("click", function () {
+    var thisId = $(this).attr("data-id");
+    $.ajax({
+      method: "POST",
+      url: "/read/" + thisId
+    })
+    location.reload()
+  })
 
-
-     // })
-  //  })
+  $(".unread-btn").on("click", function () {
+    var thisId = $(this).attr("data-id");
+    $.ajax({
+      method: "POST",
+      url: "/unread/" + thisId
+    })
+    location.reload()
+  })
 </script>
+<script src="app.js"></script>
