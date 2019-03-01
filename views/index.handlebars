@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/style.css" />
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+<a href="google.com" onclick="signOut();">Sign out</a>
 
 <div class="jumbotron">
   <h1 class="display-4">Duke Blue Devils News Scraper!</h1>
@@ -71,6 +72,13 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
 {{!-- <a href="#" onclick="signOut();">Sign out</a>
 <script>
